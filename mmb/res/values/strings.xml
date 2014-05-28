@@ -2,7 +2,11 @@
 <resources>
 
     <string name="app_name">mmb</string>
+    <string name="welcome_message">Bem vindo! Qual o seu nome?</string>
+    <string name="button_send_name">Enviar</string>
+    <string name="action_settings">Opcoes</string>
+    <string name="title_activity_main">a</string>
+    <string name="title_activity_new_player">Bem vindo!</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
 
 </resources>

@@ -10,30 +10,37 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.os.Build;
 
-public class MainActivity extends ActionBarActivity {
-	public final static String USER_NAME = "com.example.mmb.USER_NAME";
+public class NewPlayerActivity extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 
-		if (savedInstanceState == null) {
-			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
+		// Get the message from the intent
+	    Intent intent = getIntent();
+	    String message = intent.getStringExtra(MainActivity.USER_NAME);
+
+	    // Create the text view
+	    TextView textView = new TextView(this);
+	    textView.setTextSize(25);
+	    textView.setText("Bem vindo, " + message + "!");
+
+	    // Set the text view as the activity layout
+	    setContentView(textView);
 	}
-
+	
+	/*
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.new_player, menu);
 		return true;
 	}
+	*/
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -49,7 +56,7 @@ public class MainActivity extends ActionBarActivity {
 
 	/**
 	 * A placeholder fragment containing a simple view.
-	 */
+	 *
 	public static class PlaceholderFragment extends Fragment {
 
 		public PlaceholderFragment() {
@@ -58,18 +65,11 @@ public class MainActivity extends ActionBarActivity {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main, container,
-					false);
+			View rootView = inflater.inflate(R.layout.fragment_new_player,
+					container, false);
 			return rootView;
 		}
 	}
+	*/
 
-	/** Called when the user clicks the Send name button */
-	public void sendName(View view) {
-	    Intent intent = new Intent(this, NewPlayerActivity.class);
-	    EditText editText = (EditText) findViewById(R.id.edit_message);
-	    String user_name = editText.getText().toString();
-	    intent.putExtra(USER_NAME, user_name);
-	    startActivity(intent);
-	}
 }
